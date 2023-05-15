@@ -42,6 +42,29 @@ void pop_back(int*& arr, int& size ) {
     delete[]arr;
     arr = newArr;
 }
+void push_Forward(int*& arr, int& size, const int value) {
+    int* newArr = new int[size + 1];
+    for (size_t i = 0; i < size; i++)
+    {
+        newArr[i+1] = arr[i];
+    }
+    newArr[0] = value;
+
+
+    delete[]arr;
+    arr = newArr;
+}
+void pop_back(int*& arr, int& size ) {
+    size--;
+    int* newArr = new int[size];
+    for (size_t i = 0; i < size; i++)
+    {
+        newArr[i] = arr[i];
+    }
+
+    delete[]arr;
+    arr = newArr;
+}
 
 int main()
 {
@@ -64,14 +87,9 @@ int main()
     {
          std::cout  << FirAr[i]<< "\t";
     }
-    std::cout << "\nFirst array \n";
-
-    pop_back(FirAr, size);
-    for (size_t i = 0; i < size; i++)
-    {
-        std::cout << FirAr[i] << "\t";
-    } 
    
+   
+
     delete[]FirAr;
     delete[]SecAr;
 /*
